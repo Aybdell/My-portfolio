@@ -46,139 +46,146 @@ const Header = ({ isDarkMode, toggleTheme }) => {
         zIndex: 1000,
       }}
     >
-      <div className="modern-header-inner">
-        {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="modern-logo"
-          style={{
-            fontSize: '2.1rem',
-            fontWeight: 900,
-            letterSpacing: '1px',
-            color: '#fff',
-            background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            textShadow: '0 2px 12px #fff, 0 0 2px var(--accent)',
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          Ayyb | <span className="accent" style={{ fontWeight: 900, marginLeft: 6 }}>Techfolio</span>
-        </motion.div>
-
-        {/* Desktop Navigation */}
-        <nav className="modern-nav-links" style={{ display: 'flex', gap: '2.5rem' }}>
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.to}
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className="modern-nav-link"
-              activeClass="active"
-              style={{
-                color: '#fff',
-                fontWeight: 700,
-                fontSize: '1.15rem',
-                letterSpacing: '0.5px',
-                textShadow: '0 2px 8px #000, 0 0 2px #fff',
-                padding: '0.25rem 0',
-                borderRadius: '8px',
-                transition: 'color 0.2s, background 0.2s',
-              }}
-              activeStyle={{
-                color: 'var(--accent)',
-                background: 'rgba(0,212,255,0.08)',
-                textShadow: '0 2px 12px var(--accent)',
-              }}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Theme Toggle Button */}
-        <motion.button
-          className="theme-toggle"
-          onClick={toggleTheme}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          initial={{ opacity: 0, rotate: -180 }}
-          animate={{ opacity: 1, rotate: 0 }}
-          transition={{ duration: 0.3 }}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: isDarkMode ? '#fff' : '#333',
-            fontSize: '1.5rem',
-            cursor: 'pointer',
-            padding: '0.5rem',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginRight: '1rem',
-            transition: 'all 0.3s ease',
-          }}
-        >
-          {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
-        </motion.button>
-
-        {/* Hamburger (mobile) */}
+      <div className="modern-header-inner" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        {/* Logo and nav only on desktop */}
+        <div className="desktop-header-content" style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="modern-logo"
+            style={{
+              fontSize: '2.1rem',
+              fontWeight: 900,
+              letterSpacing: '1px',
+              color: '#fff',
+              background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textShadow: '0 2px 12px #fff, 0 0 2px var(--accent)',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            Ayyb | <span className="accent" style={{ fontWeight: 900, marginLeft: 6 }}>Techfolio</span>
+          </motion.div>
+          <nav className="modern-nav-links" style={{ display: 'flex', gap: '2.5rem', marginLeft: '2rem' }}>
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.to}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className="modern-nav-link"
+                activeClass="active"
+                style={{
+                  color: '#fff',
+                  fontWeight: 700,
+                  fontSize: '1.15rem',
+                  letterSpacing: '0.5px',
+                  textShadow: '0 2px 8px #000, 0 0 2px #fff',
+                  padding: '0.25rem 0',
+                  borderRadius: '8px',
+                  transition: 'color 0.2s, background 0.2s',
+                }}
+                activeStyle={{
+                  color: 'var(--accent)',
+                  background: 'rgba(0,212,255,0.08)',
+                  textShadow: '0 2px 12px var(--accent)',
+                }}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+          <motion.button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            initial={{ opacity: 0, rotate: -180 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: isDarkMode ? '#fff' : '#333',
+              fontSize: '1.5rem',
+              cursor: 'pointer',
+              padding: '0.5rem',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginLeft: '1.5rem',
+              transition: 'all 0.3s ease',
+            }}
+          >
+            {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+          </motion.button>
+        </div>
+        {/* Hamburger (three lines) for mobile only */}
         <button
           className={`modern-hamburger${isOpen ? ' open' : ''}`}
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          style={{ marginLeft: 'auto' }}
         >
           <span />
           <span />
           <span />
         </button>
-
-        {/* Mobile Menu Overlay */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              className="modern-mobile-menu"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
-            >
-              <button
-                className="modern-mobile-close"
-                onClick={() => setIsOpen(false)}
-                aria-label="Close menu"
-              >
-                <FaTimes size={32} />
-              </button>
-              <div className="modern-mobile-links">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.to}
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                    className="modern-mobile-link"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="modern-mobile-menu"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.3 }}
+          >
+            <button
+              className="modern-mobile-close"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close menu"
+            >
+              <FaTimes size={32} />
+            </button>
+            <div className="modern-mobile-links">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.to}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                  className="modern-mobile-link"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="modern-header-gradient" />
+      <style>{`
+        @media (max-width: 768px) {
+          .desktop-header-content { display: none !important; }
+          .modern-hamburger { display: flex !important; }
+        }
+        @media (min-width: 769px) {
+          .desktop-header-content { display: flex !important; }
+          .modern-hamburger { display: none !important; }
+        }
+      `}</style>
     </header>
   );
 };
