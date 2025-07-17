@@ -106,11 +106,12 @@ const Hero = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.4 + index * 0.1, duration: 0.5 }}
                 style={{
-                  color: 'rgba(255, 255, 255, 0.8)',
+                  color: 'var(--text-secondary)',
                   transition: 'color 0.3s ease',
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  fontSize: '1.5rem'
                 }}
-                whileHover={{ scale: 1.1, color: 'white' }}
+                whileHover={{ scale: 1.1, color: 'var(--accent)' }}
                 whileTap={{ scale: 0.95 }}
               >
                 <social.icon size={24} />

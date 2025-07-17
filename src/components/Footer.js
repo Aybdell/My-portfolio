@@ -20,13 +20,41 @@ const Footer = () => {
           style={{ textAlign: 'center', marginBottom: '2.5rem' }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-            <FaCode style={{ fontSize: '2.5rem', color: '#667eea', marginBottom: '0.5rem' }} />
-            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '0.5rem', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            <FaCode style={{ fontSize: '3.2rem', color: 'var(--accent)', marginBottom: '0.5rem', filter: 'drop-shadow(0 2px 12px var(--accent-secondary))' }} />
+            <motion.h3
+              initial={{ opacity: 0, scale: 0.92 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              style={{
+                fontSize: '2.2rem',
+                fontWeight: 800,
+                marginBottom: '0.5rem',
+                color: '#fff',
+                letterSpacing: '1px',
+                textAlign: 'center',
+                background: 'none',
+                textShadow: '0 2px 8px #222',
+              }}
+            >
               Ayoub DELLAOUI
-            </h3>
-            <p style={{ color: '#d1d5db', maxWidth: '400px', margin: '0 auto', fontSize: '1.1rem', lineHeight: 1.7 }}>
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              style={{
+                color: '#fff',
+                maxWidth: '500px',
+                margin: '0 auto',
+                fontSize: '1.15rem',
+                lineHeight: 1.7,
+                textShadow: '0 2px 8px #222',
+                fontWeight: 500,
+                textAlign: 'center',
+              }}
+            >
               Web Developer & CS Student passionate about creating amazing digital experiences and innovative solutions.
-            </p>
+            </motion.p>
           </div>
         </motion.div>
         <motion.div
@@ -34,7 +62,7 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '2rem' }}
+          style={{ display: 'flex', justifyContent: 'center', gap: '2.5rem', marginBottom: '2rem' }}
         >
           {socialLinks.map((social, index) => (
             <motion.a
@@ -48,30 +76,31 @@ const Footer = () => {
               viewport={{ once: true }}
               className="footer-social-link"
               style={{
-                background: 'rgba(255,255,255,0.08)',
-                color: 'white',
-                width: 56,
-                height: 56,
+                background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%)',
+                color: '#fff',
+                width: 64,
+                height: 64,
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 28,
+                fontSize: 32,
                 margin: '0 0.5rem',
-                boxShadow: '0 4px 16px rgba(102,126,234,0.15)',
+                boxShadow: '0 8px 32px var(--accent-secondary), 0 2px 8px var(--shadow)',
                 transition: 'all 0.3s',
-                border: '2px solid transparent'
+                border: '2.5px solid #fff',
+                filter: 'drop-shadow(0 2px 12px var(--accent))',
               }}
               whileHover={{
-                scale: 1.15,
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                borderColor: '#fff',
+                scale: 1.18,
+                background: 'linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent) 100%)',
+                borderColor: 'var(--accent)',
                 color: '#fff',
-                boxShadow: '0 8px 32px rgba(102,126,234,0.25)'
+                boxShadow: '0 12px 48px var(--accent), 0 4px 16px var(--shadow)'
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <social.icon size={28} />
+              <social.icon size={32} />
             </motion.a>
           ))}
         </motion.div>
@@ -80,7 +109,7 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', color: '#b3b8c5', fontSize: '1rem', marginBottom: '2.5rem' }}
+          style={{ textAlign: 'center', color: '#fff', fontSize: '1.15rem', marginBottom: '2.5rem', textShadow: '0 2px 8px #000, 0 0 2px #fff', fontWeight: 600 }}
         >
           <p>Let's connect and build something amazing together!</p>
         </motion.div>

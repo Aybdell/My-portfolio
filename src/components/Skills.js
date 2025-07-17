@@ -39,13 +39,24 @@ const Skills = () => {
           className="text-center"
           style={{ marginBottom: '4rem' }}
         >
-          <h2 className="section-title">Skills & Expertise</h2>
-          <p className="section-subtitle">
+          <h2 className="section-title" style={{
+            color: '#111',
+            fontWeight: 900,
+            fontSize: '3rem',
+            textShadow: '0 2px 8px #b3b8c5',
+            letterSpacing: '1px',
+          }}>Skills & Expertise</h2>
+          <p className="section-subtitle" style={{
+            color: '#222',
+            fontWeight: 500,
+            fontSize: '1.25rem',
+            textShadow: '0 2px 8px #fff',
+          }}>
             A comprehensive overview of my technical and soft skills
           </p>
         </motion.div>
 
-        <div className="skills-container">
+        <div className="skills-container" style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap' }}>
           {/* Technical Skills */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -53,7 +64,16 @@ const Skills = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#111827', marginBottom: '2rem' }}>Technical Skills</h3>
+            <h3 style={{
+              fontSize: '2rem',
+              fontWeight: 800,
+              color: '#222',
+              marginBottom: '2rem',
+              letterSpacing: '1px',
+              background: 'none',
+              textShadow: '0 2px 8px #fff',
+              textAlign: 'center',
+            }}>Technical Skills</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {technicalSkills.map((skill, index) => (
                 <motion.div
@@ -63,15 +83,37 @@ const Skills = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="skill-progress"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(30,41,59,0.85) 60%, rgba(0,212,255,0.10) 100%)',
+                    padding: '2rem 1.2rem',
+                    borderRadius: '1.5rem',
+                    boxShadow: '0 8px 24px 0 rgba(0,212,255,0.10), 0 2px 8px 0 var(--shadow)',
+                    border: '2px solid var(--accent)',
+                    minWidth: 270,
+                    maxWidth: 340,
+                    margin: '0 auto',
+                    color: '#fff',
+                    fontWeight: 800,
+                    fontSize: '1.1rem',
+                    transition: 'box-shadow 0.3s, transform 0.3s',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}
+                  whileHover={{ scale: 1.06, boxShadow: '0 24px 64px 0 rgba(0,212,255,0.18), 0 4px 24px 0 var(--shadow)' }}
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1, type: 'spring', stiffness: 120 }}
                 >
-                  <div className="skill-header-progress">
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <div className="skill-header-progress" style={{ justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                       <skill.icon 
-                        style={{ fontSize: '1.25rem', marginRight: '0.75rem', color: skill.color }}
+                        style={{ fontSize: '2.2rem', marginRight: '0.75rem', color: skill.color, filter: 'drop-shadow(0 2px 8px rgba(0,212,255,0.25))' }}
                       />
-                      <span style={{ fontWeight: '500', color: '#111827' }}>{skill.name}</span>
+                      <span style={{ fontWeight: 900, color: '#fff', fontSize: '1.25rem', textShadow: '0 2px 8px #222, 0 0 2px #fff' }}>{skill.name}</span>
                     </div>
-                    <span style={{ fontSize: '0.875rem', color: '#6b7280' }}>{skill.level}%</span>
+                    <span style={{ fontSize: '1.15rem', color: '#fff', fontWeight: 900, textShadow: '0 2px 8px #222, 0 0 2px #fff' }}>{skill.level}%</span>
                   </div>
                   <div className="skill-progress-bar">
                     <motion.div
@@ -95,7 +137,16 @@ const Skills = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#111827', marginBottom: '2rem' }}>Soft Skills</h3>
+            <h3 style={{
+              fontSize: '2rem',
+              fontWeight: 800,
+              color: '#222',
+              marginBottom: '2rem',
+              letterSpacing: '1px',
+              background: 'none',
+              textShadow: '0 2px 8px #fff',
+              textAlign: 'center',
+            }}>Soft Skills</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {softSkills.map((skill, index) => (
                 <motion.div
@@ -105,10 +156,20 @@ const Skills = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="skill-progress"
+                  style={{
+                    background: 'var(--surface)',
+                    padding: '2.5rem 2rem',
+                    borderRadius: '1.5rem',
+                    boxShadow: '0 4px 20px var(--shadow)',
+                    border: '1px solid var(--border)',
+                    minWidth: 320,
+                    maxWidth: 420,
+                    margin: '0 auto',
+                  }}
                 >
-                  <div className="skill-header-progress">
-                    <span style={{ fontWeight: '500', color: '#111827' }}>{skill.name}</span>
-                    <span style={{ fontSize: '0.875rem', color: '#6b7280' }}>{skill.level}%</span>
+                  <div className="skill-header-progress" style={{ justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
+                    <span style={{ fontWeight: 900, color: '#fff', fontSize: '1.25rem', textShadow: '0 2px 8px #222, 0 0 2px #fff' }}>{skill.name}</span>
+                    <span style={{ fontSize: '1.15rem', color: '#fff', fontWeight: 900, textShadow: '0 2px 8px #222, 0 0 2px #fff' }}>{skill.level}%</span>
                   </div>
                   <div className="skill-progress-bar">
                     <motion.div
