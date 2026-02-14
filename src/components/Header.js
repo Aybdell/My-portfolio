@@ -1,193 +1,140 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
-const Header = ({ isDarkMode, toggleTheme }) => {
+const navItems = [
+  { name: 'Home', to: 'home' },
+  { name: 'About', to: 'about' },
+  { name: 'Skills', to: 'skills' },
+  { name: 'Experience', to: 'experience' },
+  { name: 'Projects', to: 'projects' },
+  { name: 'Contact', to: 'contact' },
+];
+
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
   }, [isOpen]);
 
-  const navItems = [
-    { name: 'Home', to: 'home' },
-    { name: 'About', to: 'about' },
-    { name: 'Skills', to: 'skills' },
-    { name: 'Projects', to: 'projects' },
-    { name: 'Contact', to: 'contact' }
-  ];
-
   return (
-    <header className={`modern-header ${scrolled ? 'scrolled' : ''}`}
-      style={{
-        background: 'rgba(30,41,59,0.85)',
-        backdropFilter: 'blur(16px)',
-        boxShadow: scrolled ? '0 4px 24px 0 var(--shadow)' : '0 2px 8px 0 var(--shadow)',
-        borderBottom: '2px solid var(--accent)',
-        borderRadius: '0 0 2rem 2rem',
-        transition: 'all 0.3s',
-        zIndex: 1000,
-      }}
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'py-3 px-4 md:px-6'
+          : 'py-5 px-4 md:px-6'
+      }`}
     >
-      <div className="modern-header-inner" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        {/* Logo and nav only on desktop */}
-        <div className="desktop-header-content" style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="modern-logo"
-            style={{
-              fontSize: '2.1rem',
-              fontWeight: 900,
-              letterSpacing: '1px',
-              color: '#fff',
-              background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              textShadow: '0 2px 12px #fff, 0 0 2px var(--accent)',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            Ayyb | <span className="accent" style={{ fontWeight: 900, marginLeft: 6 }}>Techfolio</span>
-          </motion.div>
-          <nav className="modern-nav-links" style={{ display: 'flex', gap: '2.5rem', marginLeft: '2rem' }}>
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.to}
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className="modern-nav-link"
-                activeClass="active"
-                style={{
-                  color: '#fff',
-                  fontWeight: 700,
-                  fontSize: '1.15rem',
-                  letterSpacing: '0.5px',
-                  textShadow: '0 2px 8px #000, 0 0 2px #fff',
-                  padding: '0.25rem 0',
-                  borderRadius: '8px',
-                  transition: 'color 0.2s, background 0.2s',
-                }}
-                activeStyle={{
-                  color: 'var(--accent)',
-                  background: 'rgba(0,212,255,0.08)',
-                  textShadow: '0 2px 12px var(--accent)',
-                }}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-          <motion.button
-            className="theme-toggle"
-            onClick={toggleTheme}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0, rotate: -180 }}
-            animate={{ opacity: 1, rotate: 0 }}
-            transition={{ duration: 0.3 }}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: isDarkMode ? '#fff' : '#333',
-              fontSize: '1.5rem',
-              cursor: 'pointer',
-              padding: '0.5rem',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginLeft: '1.5rem',
-              transition: 'all 0.3s ease',
-            }}
-          >
-            {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
-          </motion.button>
-        </div>
-        {/* Hamburger (three lines) for mobile only */}
-        <button
-          className={`modern-hamburger${isOpen ? ' open' : ''}`}
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          style={{ marginLeft: 'auto' }}
+      <div
+        className={`max-w-6xl mx-auto flex items-center justify-between transition-all duration-300 ${
+          scrolled
+            ? 'rounded-2xl bg-dark-bg/80 backdrop-blur-xl border border-dark-border py-3 px-5 shadow-xl shadow-black/20'
+            : ''
+        }`}
+      >
+        <Link
+          to="home"
+          smooth
+          duration={500}
+          className="text-lg font-bold tracking-tight text-white hover:text-accent transition-colors"
         >
-          <span />
-          <span />
-          <span />
+          Ayoub<span className="text-accent">.</span>
+        </Link>
+
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              spy
+              smooth
+              offset={-90}
+              duration={500}
+              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors relative"
+              activeClass="!text-accent"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden md:block">
+          <Link to="contact" smooth offset={-90} duration={500}>
+            <motion.span
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-block px-5 py-2.5 rounded-xl bg-accent/10 text-accent font-semibold text-sm border border-accent/20 hover:bg-accent/20 transition-colors"
+            >
+              Let's talk
+            </motion.span>
+          </Link>
+        </div>
+
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden p-2 text-white hover:text-accent transition-colors"
+        >
+          {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
       </div>
-      {/* Mobile Menu Overlay */}
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="modern-mobile-menu"
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-full left-4 right-4 mt-2 rounded-2xl bg-dark-surface border border-dark-border shadow-xl overflow-hidden"
           >
-            <button
-              className="modern-mobile-close"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close menu"
-            >
-              <FaTimes size={32} />
-            </button>
-            <div className="modern-mobile-links">
+            <nav className="flex flex-col p-4 gap-1">
               {navItems.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.to}
                   to={item.to}
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
+                  spy
+                  smooth
+                  offset={-90}
                   duration={500}
-                  className="modern-mobile-link"
                   onClick={() => setIsOpen(false)}
+                  className="text-base font-medium text-zinc-300 hover:text-accent py-3 px-4 rounded-xl hover:bg-dark-bg/50 transition-colors"
                 >
                   {item.name}
                 </Link>
               ))}
-            </div>
+              <Link
+                to="contact"
+                smooth
+                offset={-90}
+                duration={500}
+                onClick={() => setIsOpen(false)}
+                className="text-base font-semibold text-accent py-3 px-4 mt-2"
+              >
+                Let's talk →
+              </Link>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="modern-header-gradient" />
-      <style>{`
-        @media (max-width: 768px) {
-          .desktop-header-content { display: none !important; }
-          .modern-hamburger { display: flex !important; }
-        }
-        @media (min-width: 769px) {
-          .desktop-header-content { display: flex !important; }
-          .modern-hamburger { display: none !important; }
-        }
-      `}</style>
-    </header>
+    </motion.header>
   );
 };
 
-export default Header; 
+export default Header;

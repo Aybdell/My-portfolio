@@ -1,185 +1,186 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaMobile, FaGlobe } from 'react-icons/fa';
+import { Link } from 'react-scroll';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+
+const projects = [
+  {
+    id: 1,
+    title: 'Ophthalmology Consultation Platform',
+    description: 'Full-stack healthcare app for ophthalmology clinics: patient management, appointments, medical records, and consultation tracking.',
+    image: 'https://via.placeholder.com/600x340/1e1b4b/6366f1?text=Ophthalmology+App',
+    technologies: ['React', 'Node.js', 'Express', 'PostgreSQL', 'REST API'],
+    category: 'web',
+    github: 'https://github.com/Aybdell',
+    live: '#',
+    featured: true,
+  },
+  {
+    id: 2,
+    title: 'University Management System',
+    description: 'Academic system for student management, course registration, and admin functions. Built for reliability in educational environments.',
+    image: 'https://via.placeholder.com/600x340/312e81/818cf8?text=Univ+System',
+    technologies: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+    category: 'web',
+    github: 'https://github.com/Aybdell',
+    live: '#',
+    featured: true,
+  },
+  {
+    id: 3,
+    title: 'Portfolio Website',
+    description: 'Modern responsive portfolio with smooth animations and a premium dark theme.',
+    image: 'https://via.placeholder.com/600x340/4c1d95/a78bfa?text=Portfolio',
+    technologies: ['React', 'Tailwind CSS', 'Framer Motion'],
+    category: 'web',
+    github: 'https://github.com/Aybdell',
+    live: 'https://ayoubdell.vercel.app',
+    featured: false,
+  },
+];
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
-
-  const projects = [
-    {
-      id: 1,
-      title: 'Ophthalmology Consultation Web App',
-      description: 'My PFE (Final Year Project) - A comprehensive web application for specialized ophthalmology consultation management. Features include patient management, appointment scheduling, medical records, and consultation tracking.',
-      image: 'https://via.placeholder.com/400x250/3B82F6/FFFFFF?text=Ophthalmology+App',
-      technologies: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'HTML', 'CSS'],
-      category: 'web',
-      github: 'https://github.com/Aybdell',
-      live: '#',
-      featured: true
-    },
-    {
-      id: 2,
-      title: 'Univ_System',
-      description: 'University management system developed during my second year of studies. This academic project includes student management, course registration, and administrative functions using PHP and traditional web technologies.',
-      image: 'https://via.placeholder.com/400x250/10B981/FFFFFF?text=Univ+System',
-      technologies: ['PHP', 'HTML', 'CSS', 'MySQL', 'JavaScript'],
-      category: 'web',
-      github: 'https://github.com/Aybdell',
-      live: '#',
-      featured: true
-    },
-    {
-      id: 3,
-      title: 'Personal Portfolio Website',
-      description: 'A modern, responsive portfolio website built with React and Framer Motion. Features smooth animations, interactive components, and a professional design to showcase my skills and projects.',
-      image: 'https://via.placeholder.com/400x250/8B5CF6/FFFFFF?text=Portfolio',
-      technologies: ['React', 'Framer Motion', 'CSS3', 'JavaScript', 'React Icons'],
-      category: 'web',
-      github: 'https://github.com/Aybdell',
-      live: '#',
-      featured: false
-    }
-  ];
-
   const filters = [
-    { id: 'all', label: 'All Projects', icon: FaGlobe },
-    { id: 'web', label: 'Web Apps', icon: FaCode },
-    { id: 'mobile', label: 'Mobile Apps', icon: FaMobile }
+    { id: 'all', label: 'All' },
+    { id: 'web', label: 'Web' },
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filtered =
+    activeFilter === 'all' ? projects : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="projects" className="section projects">
-      <div className="container">
+    <section id="projects" className="py-28 px-6 relative">
+      <div className="absolute top-0 left-0 right-0 h-px section-divider" />
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center"
-          style={{ marginBottom: '4rem' }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-14"
         >
-          <h2 className="section-title">My Projects</h2>
-          <p className="section-subtitle">
-            Here are some of the projects I've worked on. Each one represents a unique challenge and learning experience.
+          <span className="section-label">Selected work</span>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-tight">
+            Projects
+          </h2>
+          <p className="text-zinc-400 text-lg max-w-xl mx-auto">
+            From healthcare platforms to academic systems—built for clarity and performance.
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="project-filters"
+          className="flex justify-center gap-2 mb-12"
         >
-          {filters.map((filter) => (
+          {filters.map((f) => (
             <button
-              key={filter.id}
-              onClick={() => setActiveFilter(filter.id)}
-              className={`filter-btn ${activeFilter === filter.id ? 'active' : ''}`}
+              key={f.id}
+              onClick={() => setActiveFilter(f.id)}
+              className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                activeFilter === f.id
+                  ? 'bg-accent text-white'
+                  : 'bg-dark-surface text-zinc-400 hover:text-white border border-dark-border'
+              }`}
             >
-              <filter.icon style={{ marginRight: '0.5rem' }} size={16} />
-              {filter.label}
+              {f.label}
             </button>
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="projects-grid">
-          {filteredProjects.map((project, index) => (
-            <motion.div
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filtered.map((project, i) => (
+            <motion.article
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="project-card"
-              whileHover={{ y: -5 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              whileHover={{ y: -8 }}
+              className="group rounded-2xl overflow-hidden border border-dark-border bg-dark-surface/30 card-soft flex flex-col"
             >
-              {/* Project Image */}
-              <div style={{ position: 'relative', overflow: 'hidden' }}>
+              <div className="relative overflow-hidden aspect-[16/10] bg-dark-bg">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="project-image"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {project.featured && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    left: '1rem',
-                    background: 'linear-gradient(45deg, #2563eb, #3b82f6)',
-                    color: 'white',
-                    padding: '0.25rem 0.75rem',
-                    borderRadius: '20px',
-                    fontSize: '0.75rem',
-                    fontWeight: '600'
-                  }}>
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-accent/90 text-white text-xs font-semibold uppercase tracking-wider">
                     Featured
-                  </div>
+                  </span>
                 )}
               </div>
 
-              {/* Project Content */}
-              <div className="project-content">
-                <h3 className="project-title">
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-accent transition-colors">
                   {project.title}
                 </h3>
-                <p className="project-description">
+                <p className="text-zinc-500 text-sm leading-relaxed mb-4 flex-1">
                   {project.description}
                 </p>
 
-                {/* Technologies */}
-                <div className="project-tech">
+                <div className="flex flex-wrap gap-2 mb-5">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="tech-tag"
+                      className="px-2.5 py-1 rounded-lg text-xs font-medium bg-dark-bg text-zinc-400 border border-dark-border"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Project Links */}
-                <div className="project-links">
+                <div className="flex gap-3">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="project-link github"
-                    style={{ width: '100%', justifyContent: 'center' }}
+                    className="inline-flex items-center justify-center gap-2 flex-1 py-3 rounded-xl bg-dark-bg border border-dark-border text-zinc-300 text-sm font-medium hover:border-accent/50 hover:text-accent transition-all"
                   >
-                    <FaGithub style={{ marginRight: '0.5rem' }} size={16} />
-                    Code
+                    <FaGithub size={18} />
+                    GitHub
+                  </a>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 flex-1 py-3 rounded-xl bg-accent text-white text-sm font-semibold hover:bg-accent-light transition-colors shadow-lg shadow-accent/20"
+                  >
+                    <FaExternalLinkAlt size={16} />
+                    Live Demo
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
-        {/* View More Button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginTop: '3rem' }}
+          className="text-center mt-14"
         >
+          <Link to="contact" smooth offset={-90} duration={500}>
+            <motion.span
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-block px-6 py-3 rounded-xl border border-dark-border text-zinc-400 font-medium hover:border-accent/50 hover:text-accent transition-colors mr-4"
+            >
+              Start a project
+            </motion.span>
+          </Link>
           <a
             href="https://github.com/Aybdell"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary"
-            style={{ display: 'inline-flex', alignItems: 'center' }}
+            className="inline-flex items-center gap-2 text-zinc-400 text-sm font-medium hover:text-accent transition-colors"
           >
-            <FaGithub style={{ marginRight: '0.5rem' }} size={20} />
-            View More on GitHub
+            <FaGithub size={18} />
+            View more on GitHub
           </a>
         </motion.div>
       </div>
@@ -187,4 +188,4 @@ const Projects = () => {
   );
 };
 
-export default Projects; 
+export default Projects;
