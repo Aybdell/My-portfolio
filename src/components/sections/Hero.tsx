@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-midnight-background">
       {/* Premium Midnight Steel background */}
       <div className="absolute inset-0 bg-midnight-background">
         <div className="absolute inset-0 bg-gradient-to-br from-midnight-accent/5 via-transparent to-midnight-accentDark/5 animate-gradient" />
@@ -98,16 +98,16 @@ export default function Hero() {
       </div>
 
       {/* Premium main content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-3 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
         {/* Welcome badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 sm:mb-8"
+          className="mb-4 sm:mb-6"
         >
-          <Badge variant="premium" className="mb-3 sm:mb-4 text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 shadow-steel">
-            <Code2 className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+          <Badge variant="premium" className="mb-2 sm:mb-4 text-xs sm:text-sm px-2 sm:px-4 py-1 sm:py-2 shadow-steel">
+            <Code2 className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
             <span className="hidden sm:inline">Frontend Developer & UI Engineer</span>
             <span className="sm:hidden">Dev & UI Engineer</span>
           </Badge>
@@ -118,7 +118,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-midnight-text mb-4 sm:mb-6 leading-tight tracking-tight px-2"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-midnight-text mb-3 sm:mb-6 leading-tight tracking-tight px-2"
         >
           <span className="block">I build</span>
           <span className="block bg-gradient-to-r from-midnight-accent via-midnight-accent to-midnight-accentDark bg-clip-text text-transparent animate-gradient">
@@ -132,7 +132,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-sm sm:text-base md:text-lg text-midnight-textSecondary mb-6 sm:mb-8 max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed font-light px-2"
+          className="text-xs sm:text-sm md:text-base lg:text-lg text-midnight-textSecondary mb-4 sm:mb-8 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed font-light px-2"
         >
           <span className="block sm:hidden">Crafting modern web apps with AI workflows.</span>
           <span className="hidden sm:block">Crafting modern, scalable web applications with cutting-edge technologies and AI-powered workflows. Transforming ideas into premium digital products.</span>
@@ -143,38 +143,38 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12"
+          className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center items-center mb-6 sm:mb-12"
         >
           <motion.div
             whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto max-w-xs sm:max-w-none"
           >
             <Button 
               size="lg" 
               variant="premium"
-              className="text-sm sm:text-base font-semibold w-full sm:w-auto"
+              className="text-xs sm:text-sm md:text-base font-semibold w-full sm:w-auto"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Rocket className="w-4 h-4 sm:w-4 sm:h-4 mr-2" />
+              <Rocket className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
               <span className="hidden sm:inline">View My Work</span>
               <span className="sm:hidden">Work</span>
-              <ExternalLink className="hidden sm:inline w-4 h-4 ml-2" />
+              <ExternalLink className="hidden sm:inline w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
             </Button>
           </motion.div>
           
           <motion.div
             whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto max-w-xs sm:max-w-none"
           >
             <Button 
               size="lg" 
               variant="glass"
-              className="text-sm sm:text-base font-semibold w-full sm:w-auto"
+              className="text-xs sm:text-sm md:text-base font-semibold w-full sm:w-auto"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Download className="w-4 h-4 sm:w-4 sm:h-4 mr-2" />
+              <Download className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
               <span className="hidden sm:inline">Download Resume</span>
               <span className="sm:hidden">Resume</span>
             </Button>
@@ -186,7 +186,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-12"
+          className="flex flex-wrap justify-center gap-1 sm:gap-2 mb-6 sm:mb-12"
         >
           {['React', 'Next.js', 'TypeScript', 'Tailwind', 'Framer', 'Node.js'].map((tech, index) => (
             <motion.div
@@ -199,7 +199,7 @@ export default function Hero() {
               viewport={{ once: true }}
               className="group"
             >
-              <Badge variant="glass" className="text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-1.5 shadow-steel hover:shadow-steel-lg group-hover:bg-midnight-accent/10 group-hover:border-midnight-accent/30">
+              <Badge variant="glass" className="text-xs sm:text-sm px-1.5 sm:px-3 py-0.5 sm:py-1.5 shadow-steel hover:shadow-steel-lg group-hover:bg-midnight-accent/10 group-hover:border-midnight-accent/30">
                 {tech}
               </Badge>
             </motion.div>
@@ -212,7 +212,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 12, 0] }}
@@ -220,11 +220,11 @@ export default function Hero() {
           className="flex flex-col items-center text-midnight-textSecondary"
         >
           <span className="text-xs sm:text-sm mb-2 font-medium tracking-wide">Explore More</span>
-          <div className="w-6 h-10 sm:w-8 sm:h-12 border-2 border-midnight-accent/50 rounded-full flex justify-center">
+          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-midnight-accent/50 rounded-full flex justify-center">
             <motion.div
               animate={{ y: [0, 16, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1 h-3 bg-midnight-accent rounded-full mt-2"
+              className="w-0.5 h-2 sm:h-3 bg-midnight-accent rounded-full mt-2"
             />
           </div>
         </motion.div>

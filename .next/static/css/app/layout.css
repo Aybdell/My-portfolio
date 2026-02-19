@@ -713,6 +713,9 @@ html {
 .top-8{
   top: 2rem;
 }
+.bottom-4{
+  bottom: 1rem;
+}
 .z-10{
   z-index: 10;
 }
@@ -786,6 +789,9 @@ html {
 }
 .mt-6{
   margin-top: 1.5rem;
+}
+.ml-1{
+  margin-left: 0.25rem;
 }
 .line-clamp-2{
   overflow: hidden;
@@ -933,6 +939,9 @@ html {
 }
 .w-full{
   width: 100%;
+}
+.w-0\.5{
+  width: 0.125rem;
 }
 .max-w-2xl{
   max-width: 42rem;
@@ -1436,6 +1445,10 @@ html {
 .py-6{
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+.px-1\.5{
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
 }
 .pb-2{
   padding-bottom: 0.5rem;
@@ -2036,6 +2049,10 @@ html {
     top: 10rem;
   }
 
+  .sm\:bottom-8{
+    bottom: 2rem;
+  }
+
   .sm\:mb-12{
     margin-bottom: 3rem;
   }
@@ -2058,6 +2075,10 @@ html {
 
   .sm\:mt-4{
     margin-top: 1rem;
+  }
+
+  .sm\:ml-2{
+    margin-left: 0.5rem;
   }
 
   .sm\:block{
@@ -2160,8 +2181,20 @@ html {
     width: auto;
   }
 
+  .sm\:w-6{
+    width: 1.5rem;
+  }
+
   .sm\:max-w-md{
     max-width: 28rem;
+  }
+
+  .sm\:max-w-none{
+    max-width: none;
+  }
+
+  .sm\:max-w-sm{
+    max-width: 24rem;
   }
 
   .sm\:flex-row{
@@ -2268,6 +2301,11 @@ html {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
+
+  .sm\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
 }
 
 @media (min-width: 768px){
@@ -2314,6 +2352,11 @@ html {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
+
+  .md\:text-base{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px){
@@ -2356,12 +2399,22 @@ html {
     font-size: 3.75rem;
     line-height: 1;
   }
+
+  .lg\:text-lg{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1280px){
 
   .xl\:text-7xl{
     font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .xl\:text-6xl{
+    font-size: 3.75rem;
     line-height: 1;
   }
 }
