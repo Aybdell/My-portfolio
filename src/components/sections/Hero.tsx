@@ -7,11 +7,11 @@ import { Badge } from '@/components/ui/badge'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-midnight-background">
-      {/* Premium Midnight Steel background */}
-      <div className="absolute inset-0 bg-midnight-background">
-        <div className="absolute inset-0 bg-gradient-to-br from-midnight-accent/5 via-transparent to-midnight-accentDark/5 animate-gradient" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(37,99,235,0.15)_0%,transparent_50%)]" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background dark:bg-midnight-background">
+      {/* Background with theme support */}
+      <div className="absolute inset-0 bg-background dark:bg-midnight-background">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 dark:from-midnight-accent/5 dark:via-transparent dark:to-midnight-accentDark/5 animate-gradient" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(37,99,235,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(37,99,235,0.15)_0%,transparent_50%)]" />
       </div>
       
       {/* Premium floating animated elements */}
@@ -28,7 +28,7 @@ export default function Hero() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-10 left-10 w-20 h-20 sm:top-20 sm:left-20 sm:w-32 sm:h-32 bg-midnight-accent/20 rounded-full blur-2xl"
+          className="absolute top-10 left-10 w-20 h-20 sm:top-20 sm:left-20 sm:w-32 sm:h-32 bg-primary/10 dark:bg-midnight-accent/20 rounded-full blur-2xl"
         />
         
         {/* Medium floating orb */}
@@ -44,7 +44,7 @@ export default function Hero() {
             ease: "easeInOut",
             delay: 2
           }}
-          className="absolute top-32 right-10 w-16 h-16 sm:top-40 sm:right-32 sm:w-24 sm:h-24 bg-midnight-accentDark/25 rounded-full blur-2xl"
+          className="absolute top-32 right-10 w-16 h-16 sm:top-40 sm:right-32 sm:w-24 sm:h-24 bg-primary/15 dark:bg-midnight-accentDark/25 rounded-full blur-2xl"
         />
         
         {/* Small floating orb */}
@@ -59,7 +59,7 @@ export default function Hero() {
             ease: "easeInOut",
             delay: 1
           }}
-          className="absolute bottom-32 left-1/4 w-12 h-12 sm:w-20 sm:h-20 bg-midnight-accent/15 rounded-full blur-xl"
+          className="absolute bottom-32 left-1/4 w-12 h-12 sm:w-20 sm:h-20 bg-primary/8 dark:bg-midnight-accent/15 rounded-full blur-xl"
         />
         
         {/* Floating code brackets */}
@@ -74,7 +74,7 @@ export default function Hero() {
             ease: "easeInOut",
             delay: 3
           }}
-          className="absolute top-1/3 right-1/4 text-midnight-accent/30 text-4xl sm:text-6xl font-mono"
+          className="absolute top-1/3 right-1/4 text-primary/20 dark:text-midnight-accent/30 text-4xl sm:text-6xl font-mono"
         >
           {'{ }'}
         </motion.div>
@@ -93,7 +93,7 @@ export default function Hero() {
           }}
           className="absolute top-1/2 left-1/3"
         >
-          <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-midnight-accent/40" />
+          <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-primary/30 dark:text-midnight-accent/40" />
         </motion.div>
       </div>
 
@@ -106,7 +106,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-4 sm:mb-6"
         >
-          <Badge variant="premium" className="mb-2 sm:mb-4 text-xs sm:text-sm px-2 sm:px-4 py-1 sm:py-2 shadow-steel">
+          <Badge variant="default" className="mb-2 sm:mb-4 text-xs sm:text-sm px-2 sm:px-4 py-1 sm:py-2 shadow-md dark:shadow-steel">
             <Code2 className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
             <span className="hidden sm:inline">Frontend Developer & UI Engineer</span>
             <span className="sm:hidden">Dev & UI Engineer</span>
@@ -118,10 +118,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-midnight-text mb-3 sm:mb-6 leading-tight tracking-tight px-2"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground dark:text-midnight-text mb-3 sm:mb-6 leading-tight tracking-tight px-2"
         >
           <span className="block">I build</span>
-          <span className="block bg-gradient-to-r from-midnight-accent via-midnight-accent to-midnight-accentDark bg-clip-text text-transparent animate-gradient">
+          <span className="block bg-gradient-to-r from-primary via-primary to-primary/80 dark:from-midnight-accent dark:via-midnight-accent dark:to-midnight-accentDark bg-clip-text text-transparent animate-gradient">
             exceptional
           </span>
           <span className="block">digital experiences</span>
@@ -132,7 +132,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xs sm:text-sm md:text-base lg:text-lg text-midnight-textSecondary mb-4 sm:mb-8 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed font-light px-2"
+          className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground dark:text-midnight-textSecondary mb-4 sm:mb-8 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed font-light px-2"
         >
           <span className="block sm:hidden">Crafting modern web apps with AI workflows.</span>
           <span className="hidden sm:block">Crafting modern, scalable web applications with cutting-edge technologies and AI-powered workflows. Transforming ideas into premium digital products.</span>
@@ -152,8 +152,8 @@ export default function Hero() {
           >
             <Button 
               size="lg" 
-              variant="premium"
-              className="text-xs sm:text-sm md:text-base font-semibold w-full sm:w-auto"
+              variant="default"
+              className="text-xs sm:text-sm md:text-base font-semibold w-full sm:w-auto dark:bg-gradient-to-r dark:from-midnight-accent dark:via-midnight-accent dark:to-midnight-accentDark dark:text-white dark:shadow-steel-lg dark:hover:shadow-steel-xl"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Rocket className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
@@ -170,8 +170,8 @@ export default function Hero() {
           >
             <Button 
               size="lg" 
-              variant="glass"
-              className="text-xs sm:text-sm md:text-base font-semibold w-full sm:w-auto"
+              variant="outline"
+              className="text-xs sm:text-sm md:text-base font-semibold w-full sm:w-auto dark:border-midnight-border dark:text-midnight-text dark:hover:bg-midnight-accent/10 dark:hover:border-midnight-accent/50"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Download className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
@@ -199,7 +199,7 @@ export default function Hero() {
               viewport={{ once: true }}
               className="group"
             >
-              <Badge variant="glass" className="text-xs sm:text-sm px-1.5 sm:px-3 py-0.5 sm:py-1.5 shadow-steel hover:shadow-steel-lg group-hover:bg-midnight-accent/10 group-hover:border-midnight-accent/30">
+              <Badge variant="secondary" className="text-xs sm:text-sm px-1.5 sm:px-3 py-0.5 sm:py-1.5 shadow-sm hover:shadow-md group-hover:bg-primary/10 dark:bg-midnight-surface dark:text-midnight-text dark:shadow-steel dark:hover:shadow-steel-lg dark:group-hover:bg-midnight-accent/10 dark:group-hover:border-midnight-accent/30">
                 {tech}
               </Badge>
             </motion.div>
@@ -217,14 +217,14 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 12, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center text-midnight-textSecondary"
+          className="flex flex-col items-center text-muted-foreground dark:text-midnight-textSecondary"
         >
           <span className="text-xs sm:text-sm mb-2 font-medium tracking-wide">Explore More</span>
-          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-midnight-accent/50 rounded-full flex justify-center">
+          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-primary/30 dark:border-midnight-accent/50 rounded-full flex justify-center">
             <motion.div
               animate={{ y: [0, 16, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-0.5 h-2 sm:h-3 bg-midnight-accent rounded-full mt-2"
+              className="w-0.5 h-2 sm:h-3 bg-primary dark:bg-midnight-accent rounded-full mt-2"
             />
           </div>
         </motion.div>

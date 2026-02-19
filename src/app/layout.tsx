@@ -28,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth dark">
-      <body className={`${inter.variable} font-sans antialiased bg-midnight-background text-midnight-text`}>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <body className={`${inter.variable} font-sans antialiased`}>
         <ErrorBoundary>
           {children}
         </ErrorBoundary>
