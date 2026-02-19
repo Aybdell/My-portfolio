@@ -141,51 +141,51 @@ export default function ProjectCard({ repo, index }: ProjectCardProps) {
     >
       <Card className="h-full overflow-hidden border-0 shadow-steel hover:shadow-steel-lg transition-all duration-300 glass-steel-hover">
         {/* Project Image/Preview */}
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-midnight-accent/20 to-midnight-accentDark/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
           
           {/* Status Badge */}
-          <div className="absolute top-4 right-4 z-10">
+          <div className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10">
             <Badge variant={status.variant} className="text-xs glass-steel">
               {status.text}
             </Badge>
           </div>
           
           {/* Language Icon */}
-          <div className="absolute top-4 left-4 z-10">
-            <div className="w-10 h-10 rounded-lg glass-steel flex items-center justify-center">
-              <Code className="h-5 w-5 text-midnight-accent" />
+          <div className="absolute top-2 sm:top-4 left-2 sm:left-4 z-10">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg glass-steel flex items-center justify-center">
+              <Code className="h-4 w-4 sm:h-5 sm:w-5 text-midnight-accent" />
             </div>
           </div>
           
           {/* Preview Content */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 glass-steel rounded-2xl flex items-center justify-center">
-              <Github className="h-8 w-8 text-midnight-text" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 glass-steel rounded-2xl flex items-center justify-center">
+              <Github className="h-6 w-6 sm:h-8 sm:w-8 text-midnight-text" />
             </div>
           </div>
           
           {/* Stats Overlay */}
-          <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-midnight-textSecondary text-xs">
+          <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 flex items-center justify-between text-midnight-textSecondary text-xs">
             <div className="flex items-center gap-1">
-              <Star className="h-3 w-3" />
-              <span>{repo.stargazers_count}</span>
+              <Star className="h-2 w-2 sm:h-3 sm:w-3" />
+              <span className="text-xs">{repo.stargazers_count}</span>
             </div>
             <div className="flex items-center gap-1">
-              <GitFork className="h-3 w-3" />
-              <span>{repo.forks_count}</span>
+              <GitFork className="h-2 w-2 sm:h-3 sm:w-3" />
+              <span className="text-xs">{repo.forks_count}</span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="hidden sm:flex items-center gap-1">
               <Calendar className="h-3 w-3" />
-              <span>{new Date(repo.updated_at).toLocaleDateString()}</span>
+              <span className="text-xs">{new Date(repo.updated_at).toLocaleDateString()}</span>
             </div>
           </div>
         </div>
 
-        <CardHeader className="pb-4">
+        <CardHeader className="pb-2 sm:pb-4">
           <div className="flex items-start justify-between gap-2">
-            <CardTitle className="text-xl group-hover:text-midnight-accent transition-colors leading-tight text-midnight-text">
+            <CardTitle className="text-lg sm:text-xl group-hover:text-midnight-accent transition-colors leading-tight text-midnight-text pr-2">
               {repo.name}
             </CardTitle>
             {repo.language && (
@@ -194,52 +194,54 @@ export default function ProjectCard({ repo, index }: ProjectCardProps) {
               </Badge>
             )}
           </div>
-          <CardDescription className="text-sm leading-relaxed text-midnight-textSecondary">
+          <CardDescription className="text-sm leading-relaxed text-midnight-textSecondary line-clamp-2">
             {description}
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="pb-4">
-          <div className="space-y-3">
+        <CardContent className="pb-2 sm:pb-4">
+          <div className="space-y-2 sm:space-y-3">
             <div className="text-sm">
               <span className="font-medium text-midnight-textSecondary">Problem:</span>
-              <p className="text-xs mt-1 leading-relaxed text-midnight-text">{problem}</p>
+              <p className="text-xs mt-1 leading-relaxed text-midnight-text line-clamp-2">{problem}</p>
             </div>
             <div className="text-sm">
               <span className="font-medium text-midnight-textSecondary">Solution:</span>
-              <p className="text-xs mt-1 leading-relaxed text-midnight-text">{solution}</p>
+              <p className="text-xs mt-1 leading-relaxed text-midnight-text line-clamp-2">{solution}</p>
             </div>
           </div>
           
           {/* Tech Stack */}
-          <div className="flex flex-wrap gap-1 mt-4">
+          <div className="flex flex-wrap gap-1 sm:gap-1.5 mt-3 sm:mt-4">
             {techStack.map((tech) => (
-              <Badge key={tech} variant="secondary" className="text-xs glass-steel">
+              <Badge key={tech} variant="secondary" className="text-xs glass-steel px-2 py-1">
                 {tech}
               </Badge>
             ))}
           </div>
         </CardContent>
 
-        <CardFooter className="pt-4 gap-2">
+        <CardFooter className="pt-2 sm:pt-4 gap-2 sm:gap-2">
           <Button 
             size="sm" 
             variant="outline" 
-            className="flex-1 group/btn btn-steel-secondary"
+            className="flex-1 group/btn btn-steel-secondary text-xs sm:text-sm"
             onClick={() => window.open(repo.html_url, '_blank')}
           >
-            <Github className="h-4 w-4 mr-2 group-hover/btn:text-midnight-accent transition-colors" />
-            View Code
+            <Github className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover/btn:text-midnight-accent transition-colors" />
+            <span className="hidden sm:inline">View Code</span>
+            <span className="sm:hidden">Code</span>
           </Button>
           {repo.homepage && (
             <Button 
               size="sm" 
               variant="default" 
-              className="flex-1 group/btn btn-steel-primary"
+              className="flex-1 group/btn btn-steel-primary text-xs sm:text-sm"
               onClick={() => window.open(repo.homepage || '', '_blank')}
             >
-              <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:translate-x-1 transition-transform" />
-              Live Demo
+              <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover/btn:translate-x-1 transition-transform" />
+              <span className="hidden sm:inline">Live Demo</span>
+              <span className="sm:hidden">Demo</span>
             </Button>
           )}
         </CardFooter>

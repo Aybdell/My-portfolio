@@ -63,13 +63,14 @@ export default function Navigation() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50"
+        className="fixed top-3 sm:top-4 left-1/2 transform -translate-x-1/2 z-50"
       >
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full glass-steel border border-midnight-border text-xs text-midnight-textSecondary">
+        <div className="flex items-center gap-2 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full glass-steel border border-midnight-border text-xs text-midnight-textSecondary">
           <Command className="h-3 w-3" />
-          Press <kbd className="px-1.5 py-0.5 rounded glass-steel text-midnight-textSecondary text-xs">⌘</kbd>
-          <kbd className="px-1.5 py-0.5 rounded glass-steel text-midnight-textSecondary text-xs">K</kbd>
-          to open command palette
+          <span className="hidden sm:inline">Press</span>
+          <kbd className="px-1 sm:px-1.5 py-0.5 rounded glass-steel text-midnight-textSecondary text-xs">⌘</kbd>
+          <kbd className="px-1 sm:px-1.5 py-0.5 rounded glass-steel text-midnight-textSecondary text-xs">K</kbd>
+          <span className="hidden sm:inline">to open command palette</span>
         </div>
       </motion.div>
 
@@ -82,26 +83,28 @@ export default function Navigation() {
             : 'bg-transparent'
         }`}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-xl font-bold bg-gradient-to-r from-midnight-accent to-midnight-accentDark bg-clip-text text-transparent cursor-pointer"
+              className="text-lg sm:text-xl font-bold bg-gradient-to-r from-midnight-accent to-midnight-accentDark bg-clip-text text-transparent cursor-pointer"
               onClick={() => scrollToSection('#home')}
             >
-              Portfolio
+              <span className="hidden sm:inline">Portfolio</span>
+              <span className="sm:hidden">AD</span>
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-4 sm:gap-8">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-sm font-medium text-midnight-textSecondary hover:text-midnight-accent transition-colors relative group"
+                  className="text-xs sm:text-sm font-medium text-midnight-textSecondary hover:text-midnight-accent transition-colors relative group"
                 >
-                  {item.label}
+                  <span className="hidden sm:inline">{item.label}</span>
+                  <span className="sm:hidden">{item.label.charAt(0)}</span>
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-midnight-accent to-midnight-accentDark group-hover:w-full transition-all duration-300" />
                 </button>
               ))}
@@ -111,9 +114,9 @@ export default function Navigation() {
                 variant="ghost"
                 size="icon"
                 onClick={toggleDarkMode}
-                className="btn-steel-secondary hover:text-midnight-accent"
+                className="btn-steel-secondary hover:text-midnight-accent w-8 h-8 sm:w-10 sm:h-10"
               >
-                {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                {isDark ? <Sun className="h-3 w-3 sm:h-4 sm:w-4" /> : <Moon className="h-3 w-3 sm:h-4 sm:w-4" />}
               </Button>
             </div>
 
@@ -123,7 +126,7 @@ export default function Navigation() {
                 variant="ghost"
                 size="icon"
                 onClick={toggleDarkMode}
-                className="btn-steel-secondary hover:text-midnight-accent"
+                className="btn-steel-secondary hover:text-midnight-accent w-8 h-8"
               >
                 {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
@@ -132,9 +135,9 @@ export default function Navigation() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsOpen(!isOpen)}
-                className="btn-steel-secondary hover:text-midnight-accent"
+                className="btn-steel-secondary hover:text-midnight-accent w-8 h-8"
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
               </Button>
             </div>
           </div>
@@ -149,12 +152,12 @@ export default function Navigation() {
             transition={{ duration: 0.3 }}
             className="md:hidden overflow-hidden"
           >
-            <div className="py-4 space-y-2">
+            <div className="py-3 sm:py-4 space-y-1 sm:space-y-2">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-2 text-sm font-medium text-midnight-textSecondary hover:text-midnight-accent hover:bg-midnight-surface rounded-lg transition-colors"
+                  className="block w-full text-left px-3 sm:px-4 py-2 sm:py-2 text-sm font-medium text-midnight-textSecondary hover:text-midnight-accent hover:bg-midnight-surface rounded-lg transition-colors"
                 >
                   {item.label}
                 </button>
