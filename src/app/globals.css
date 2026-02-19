@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,25 +29,26 @@
   }
 
   .dark {
-    --background: 215 25% 6%;
-    --foreground: 210 40% 95%;
-    --card: 215 25% 6%;
-    --card-foreground: 210 40% 95%;
-    --popover: 215 25% 6%;
-    --popover-foreground: 210 40% 95%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 215 25% 10%;
-    --secondary-foreground: 210 40% 95%;
-    --muted: 215 25% 10%;
-    --muted-foreground: 210 7% 64%;
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 215 25% 10%;
-    --input: 215 25% 10%;
-    --ring: 217 91% 60%;
+    --background: #0B0F19;
+    --foreground: #F3F4F6;
+    --card: #111827;
+    --card-foreground: #F3F4F6;
+    --popover: #111827;
+    --popover-foreground: #F3F4F6;
+    --primary: #2563EB;
+    --primary-foreground: #ffffff;
+    --secondary: #1F2937;
+    --secondary-foreground: #F3F4F6;
+    --muted: #374151;
+    --muted-foreground: #9CA3AF;
+    --accent: #374151;
+    --accent-foreground: #F3F4F6;
+    --destructive: #EF4444;
+    --destructive-foreground: #ffffff;
+    --border: rgba(255, 255, 255, 0.08);
+    --input: rgba(255, 255, 255, 0.08);
+    --ring: #2563EB;
+    --radius: 0.75rem;
   }
 }
 
@@ -56,6 +59,9 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  html {
+    scroll-behavior: smooth;
   }
 }
 

@@ -3,16 +3,20 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap'
+})
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Frontend Developer',
-  description: 'I build modern, high-performing web experiences. Frontend Developer & AI-powered builder.',
-  keywords: ['frontend developer', 'web developer', 'react', 'next.js', 'typescript'],
-  authors: [{ name: 'Your Name' }],
+  title: 'Ayoub Dell | Frontend Developer & UI Engineer',
+  description: 'Building exceptional digital experiences with cutting-edge technologies. Frontend Developer & AI-powered builder.',
+  keywords: ['frontend developer', 'ui engineer', 'web developer', 'react', 'next.js', 'typescript', 'tailwind css'],
+  authors: [{ name: 'Ayoub Dell' }],
   openGraph: {
-    title: 'Portfolio | Frontend Developer',
-    description: 'I build modern, high-performing web experiences.',
+    title: 'Ayoub Dell | Frontend Developer & UI Engineer',
+    description: 'Building exceptional digital experiences with cutting-edge technologies.',
     type: 'website',
     locale: 'en_US',
   },
@@ -24,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <body className={`${inter.variable} font-sans antialiased`}>
         <ErrorBoundary>
           {children}
         </ErrorBoundary>

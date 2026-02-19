@@ -5,27 +5,29 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-2xl text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-2xl text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
+        default: "bg-midnight-accent text-white hover:bg-midnight-accentDark shadow-steel hover:shadow-steel-lg transform hover:-translate-y-0.5 active:translate-y-0",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-midnight-border bg-midnight-surface text-midnight-text hover:bg-midnight-accent/10 hover:text-midnight-accent hover:border-midnight-accent/50",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        gradient: "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
-        glass: "glass text-foreground hover:bg-white/20 dark:hover:bg-black/30 border border-white/20 dark:border-white/10",
+          "bg-midnight-surface text-midnight-textSecondary hover:bg-midnight-accent/10 hover:text-midnight-accent border border-midnight-border",
+        ghost: "hover:bg-midnight-accent/10 hover:text-midnight-accent text-midnight-textSecondary",
+        link: "text-midnight-accent underline-offset-4 hover:underline",
+        gradient: "bg-gradient-to-r from-midnight-accent to-midnight-accentDark text-white hover:from-midnight-accentDark hover:to-midnight-accent shadow-steel hover:shadow-steel-lg transform hover:-translate-y-0.5 active:translate-y-0",
+        glass: "glass-steel text-midnight-text hover:bg-midnight-accent/10 hover:text-midnight-accent border border-midnight-border shadow-steel hover:shadow-steel-lg",
+        premium: "bg-gradient-to-r from-midnight-accent via-midnight-accent to-midnight-accentDark text-white shadow-steel-lg hover:shadow-steel-xl transform hover:-translate-y-1 active:translate-y-0 border border-midnight-accent/30",
       },
       size: {
         default: "h-12 px-6 py-2",
-        sm: "h-10 rounded-xl px-4",
+        sm: "h-10 rounded-xl px-4 text-xs",
         lg: "h-14 rounded-3xl px-8 text-base",
         icon: "h-12 w-12",
+        xl: "h-16 rounded-3xl px-10 text-lg",
       },
     },
     defaultVariants: {

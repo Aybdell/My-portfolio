@@ -4,19 +4,20 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold transition-all duration-200",
+  "inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-semibold transition-all duration-300",
   {
     variants: {
       variant: {
         default:
-          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+          "border-transparent bg-midnight-accent text-white hover:bg-midnight-accentDark shadow-steel hover:shadow-steel-lg transform hover:scale-105",
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "border-midnight-border bg-midnight-surface text-midnight-textSecondary hover:bg-midnight-accent/10 hover:text-midnight-accent hover:border-midnight-accent/50",
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-        outline: "text-foreground",
-        gradient: "border-transparent bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700",
-        glass: "glass text-foreground hover:bg-white/20 dark:hover:bg-black/30",
+        outline: "border-midnight-border text-midnight-text hover:bg-midnight-accent/10 hover:text-midnight-accent hover:border-midnight-accent/50",
+        gradient: "border-transparent bg-gradient-to-r from-midnight-accent to-midnight-accentDark text-white hover:from-midnight-accentDark hover:to-midnight-accent shadow-steel hover:shadow-steel-lg transform hover:scale-105",
+        glass: "glass-steel text-midnight-text hover:bg-midnight-accent/10 hover:text-midnight-accent border border-midnight-border shadow-steel hover:shadow-steel-lg transform hover:scale-105",
+        premium: "border-midnight-accent/30 bg-gradient-to-r from-midnight-accent/20 to-midnight-accentDark/20 text-midnight-text hover:from-midnight-accent/30 hover:to-midnight-accentDark/30 shadow-steel hover:shadow-steel-lg transform hover:scale-105",
       },
     },
     defaultVariants: {

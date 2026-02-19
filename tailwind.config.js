@@ -83,7 +83,33 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        display: ['Inter Display', 'Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'xs': ['0.75rem', { lineHeight: '1rem' }],
+        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+        'base': ['1rem', { lineHeight: '1.5rem' }],
+        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
+        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3rem', { lineHeight: '1' }],
+        '6xl': ['3.75rem', { lineHeight: '1' }],
+        '7xl': ['4.5rem', { lineHeight: '1' }],
+        '8xl': ['6rem', { lineHeight: '1' }],
+        '9xl': ['8rem', { lineHeight: '1' }],
+        'hero': ['clamp(2.5rem, 8vw, 6rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
+        'subhero': ['clamp(1.25rem, 4vw, 1.875rem)', { lineHeight: '1.5' }],
+      },
+      letterSpacing: {
+        'tighter': '-0.05em',
+        'tight': '-0.025em',
+        'normal': '0em',
+        'wide': '0.025em',
+        'wider': '0.05em',
+        'widest': '0.1em',
       },
       keyframes: {
         "accordion-down": {
@@ -127,6 +153,26 @@ module.exports = {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.8" },
         },
+        "gradient": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        "slide-up": {
+          "0%": { transform: "translateY(30px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "slide-down": {
+          "0%": { transform: "translateY(-30px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "scale-in": {
+          "0%": { transform: "scale(0.8)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        "bounce-subtle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -137,9 +183,14 @@ module.exports = {
         "scale-in": "scale-in 0.3s ease-out",
         // Midnight Steel animations
         "glow": "glow 3s ease-in-out infinite",
-        "float": "float 4s ease-in-out infinite",
-        "shimmer": "shimmer 3s ease-in-out infinite",
-        "pulse-slow": "pulse-slow 2s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
+        "shimmer": "shimmer 3s linear infinite",
+        "pulse-slow": "pulse-slow 4s ease-in-out infinite",
+        "gradient": "gradient 8s ease infinite",
+        "slide-up": "slide-up 0.6s ease-out",
+        "slide-down": "slide-down 0.6s ease-out",
+        "scale-in": "scale-in 0.4s ease-out",
+        "bounce-subtle": "bounce-subtle 3s ease-in-out infinite",
       },
       // Custom box shadows for Midnight Steel
       boxShadow: {
