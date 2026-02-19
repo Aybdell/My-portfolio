@@ -98,7 +98,7 @@ export default function Hero() {
       </div>
 
       {/* Premium main content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 md:px-12 max-w-6xl mx-auto">
         {/* Welcome badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -112,12 +112,12 @@ export default function Hero() {
           </Badge>
         </motion.div>
 
-        {/* Premium headline */}
+        {/* Premium headline with responsive sizing */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-hero font-display font-bold text-midnight-text mb-6 sm:mb-8 leading-tight tracking-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-midnight-text mb-6 sm:mb-8 leading-tight tracking-tight"
         >
           I build
           <span className="block bg-gradient-to-r from-midnight-accent via-midnight-accent to-midnight-accentDark bg-clip-text text-transparent animate-gradient">
@@ -126,52 +126,62 @@ export default function Hero() {
           <span className="block">digital experiences</span>
         </motion.h1>
 
-        {/* Premium subheadline */}
+        {/* Premium paragraph with responsive sizing and max-width */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-subhero text-midnight-textSecondary mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-light"
+          className="text-sm sm:text-base md:text-lg text-midnight-textSecondary mb-8 sm:mb-12 max-w-xs sm:max-w-sm md:max-w-2xl mx-auto leading-relaxed font-light"
         >
           Crafting modern, scalable web applications with cutting-edge technologies and 
           AI-powered workflows. Transforming ideas into premium digital products.
         </motion.p>
 
-        {/* Premium CTA buttons */}
+        {/* Premium CTA buttons with responsive stacking */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 sm:mb-16"
         >
-          <Button 
-            size="xl" 
-            variant="premium"
-            className="group shadow-steel-lg hover:shadow-steel-xl text-sm sm:text-base font-semibold"
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+          <motion.div
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-            View My Work
-            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
+            <Button 
+              size="xl" 
+              variant="premium"
+              className="text-sm sm:text-base font-semibold w-full sm:w-auto"
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <Rocket className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+              View My Work
+              <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </motion.div>
           
-          <Button 
-            size="xl" 
-            variant="glass"
-            className="group shadow-steel hover:shadow-steel-lg text-sm sm:text-base font-semibold"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          <motion.div
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-y-1 transition-transform" />
-            Download Resume
-          </Button>
+            <Button 
+              size="xl" 
+              variant="glass"
+              className="text-sm sm:text-base font-semibold w-full sm:w-auto"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-y-1 transition-transform" />
+              Download Resume
+            </Button>
+          </motion.div>
         </motion.div>
 
-        {/* Premium tech stack */}
+        {/* Premium tech stack with responsive badges */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 sm:mb-16"
+          className="flex flex-wrap justify-center gap-2 mb-12 sm:mb-16"
         >
           {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Node.js'].map((tech, index) => (
             <motion.div
@@ -180,6 +190,8 @@ export default function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.5 + index * 0.08 }}
               whileHover={{ scale: 1.05, y: -2 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               className="group"
             >
               <Badge variant="glass" className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 shadow-steel hover:shadow-steel-lg group-hover:bg-midnight-accent/10 group-hover:border-midnight-accent/30">
